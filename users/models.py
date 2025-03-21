@@ -32,4 +32,16 @@ def save_profile(sender, instance, **kwargs):
 post_save.connect(create_profile, sender=User)
 post_save.connect(save_profile, sender=User)
 
+class PaymentWaiting(models.Model):
+    username = models.CharField(max_length=150)
+    amount = models.IntegerField()
+    phone_number = models.CharField(max_length=20, default="254713934480")    
+    def __str__(self):
+        return self.username
 
+class Payment(models.Model):
+    code = models.CharField(max_length=150)
+    amount = models.IntegerField()
+
+    def __str__(self):
+        return self.code

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, Profile
+from .models import User, PaymentWaiting, Payment
 from django.contrib.auth.admin import UserAdmin
 from .forms import *
 # Register your models here.
@@ -19,3 +19,5 @@ class CustomAdminUser(UserAdmin):
     add_form = UserCreationForm
     form = UserChangeForm
     model = User
+admin.site.register(PaymentWaiting)
+admin.site.register(Payment)
